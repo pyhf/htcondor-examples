@@ -5,7 +5,7 @@ SHELL [ "/bin/bash", "-c" ]
 
 WORKDIR /home/data
 
-ARG PYHF_VERSION=0.6.3
+ARG PYHF_VERSION=0.7.0
 ARG PYHF_BACKEND=jax
 # Set PATH to pickup virtualenv when it is unpacked
 ENV PATH=/usr/local/venv/bin:"${PATH}"
@@ -13,6 +13,7 @@ RUN apt-get -qq -y update && \
     apt-get -qq -y install --no-install-recommends \
         python3 \
         python3-dev \
+        python3-venv \
         curl \
         git && \
     apt-get -y autoclean && \
