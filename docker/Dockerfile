@@ -20,5 +20,10 @@ RUN apt-get -qq -y update && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/* && \
     python3 -m venv /usr/local/venv && \
-    python -m pip --no-cache-dir install --upgrade pip setuptools wheel
+    . /usr/local/venv/bin/activate && \
+    python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
+    python -m pip --no-cache-dir install "pyhf==${PYHF_VERSION}"
 
+RUN python -m pip --no-cache-dir install \
+    'jax==0.3.25' \
+    'jaxlib==0.3.25'
