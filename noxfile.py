@@ -37,3 +37,17 @@ def build(session):
         ".",
         external=True,
     )
+
+
+@nox.session()
+def test(session):
+    session.run(
+        "docker",
+        "run",
+        "--rm",
+        "-ti",
+        "--gpus",
+        "all",
+        "pyhf/cuda:latest-jax",
+        external=True,
+    )
