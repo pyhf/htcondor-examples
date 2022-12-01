@@ -9,7 +9,7 @@ ARG PYHF_VERSION=0.7.0
 ARG PYHF_BACKEND=jax
 # Set PATH to pickup virtualenv when it is unpacked
 ENV PATH=/usr/local/venv/bin:"${PATH}"
-RUN apt-get -qq -y update && \
+RUN apt-get -qq update && \
     apt-get -qq -y install --no-install-recommends \
         python3 \
         python3-dev \
