@@ -15,7 +15,8 @@ def build(session):
     """
     Build image
     """
-    base_image = "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04"
+    # base_image = "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04"
+    base_image = "nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04"
     pyhf_version = "0.7.0"
     pyhf_backend = "jax"
     cuda_version = base_image.split(":")[-1].split("-devel")[0]

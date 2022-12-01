@@ -1,4 +1,4 @@
-ARG BASE_IMAGE=nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+ARG BASE_IMAGE=nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
 FROM ${BASE_IMAGE} as base
 
 SHELL [ "/bin/bash", "-c" ]
