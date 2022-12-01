@@ -15,7 +15,7 @@ Example configurations for using pyhf with HTCondor inspired by the [Center for 
 Example:
 
 ```
-docker pull pyhf/cuda:0.7.0-jax-cuda-11.8
+docker pull pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
 ```
 
 ## Use
@@ -23,7 +23,7 @@ docker pull pyhf/cuda:0.7.0-jax-cuda-11.8
 To check that NVIDIA GPUS are being properly detected run
 
 ```
-docker run --rm --gpus all pyhf/cuda:0.7.0-jax-cuda-11.8 'nvidia-smi'
+docker run --rm --gpus all pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8 'nvidia-smi'
 ```
 
 and check if the [`nvidia-smi`](https://developer.nvidia.com/nvidia-system-management-interface) output appears correctly.
@@ -31,5 +31,5 @@ and check if the [`nvidia-smi`](https://developer.nvidia.com/nvidia-system-manag
 To run (interactively) using GPUs on the host machine:
 
 ```
-docker run --rm -ti --gpus all pyhf/cuda:0.7.0-jax-cuda-11.8
+docker run --rm -ti --gpus all pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
 ```
