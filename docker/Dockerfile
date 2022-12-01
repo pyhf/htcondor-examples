@@ -25,5 +25,11 @@ RUN apt-get -qq -y update && \
     python -m pip --no-cache-dir install "pyhf[xmlio,contrib]==${PYHF_VERSION}"
 
 RUN python -m pip --no-cache-dir install \
-    'jax==0.3.25' \
-    'jaxlib==0.3.25'
+    --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
+    "jax[cuda]==0.3.25"
+
+# RUN python -m pip --no-cache-dir install \
+#     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
+#     "jax[cuda11_cudnn82]==0.3.25"
+
+# RUN ln --symbolic $(dirname $(find /usr/ -type f -iname "libcudart.so.*")) /usr/local/cuda-11.8
