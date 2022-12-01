@@ -22,7 +22,7 @@ RUN apt-get -qq -y update && \
     python3 -m venv /usr/local/venv && \
     . /usr/local/venv/bin/activate && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
-    python -m pip --no-cache-dir install "pyhf==${PYHF_VERSION}"
+    python -m pip --no-cache-dir install "pyhf[xmlio,contrib]==${PYHF_VERSION}"
 
 RUN python -m pip --no-cache-dir install \
     'jax==0.3.25' \
