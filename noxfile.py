@@ -18,7 +18,7 @@ def build(session):
     base_image = "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04"
     pyhf_version = "0.7.0"
     pyhf_backend = "jax"
-    cuda_version = "11.8"
+    cuda_version = base_image.split(":")[-1].split("-devel")[0]
 
     session.run("docker", "pull", base_image, external=True)
     session.run(
