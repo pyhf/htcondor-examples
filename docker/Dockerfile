@@ -22,11 +22,13 @@ RUN apt-get -qq update && \
     python3 -m venv /usr/local/venv && \
     . /usr/local/venv/bin/activate && \
     python -m pip --no-cache-dir install --upgrade pip setuptools wheel && \
-    python -m pip --no-cache-dir install "pyhf[xmlio,contrib]==${PYHF_VERSION}"
-
-RUN python -m pip --no-cache-dir install \
+    python -m pip --no-cache-dir install "pyhf[xmlio,contrib]==${PYHF_VERSION}" && \
+    python -m pip --no-cache-dir install \
     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
-    "jax[cuda]==0.3.25"
+    "jax[cuda]==0.3.25" && \
+    mkdir -p -v /docker && \
+    curl -sL https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py \
+        -o /docker/jax_detect_GPU.py
 
 # CONTROL FOR MANUAL BUILD
 # # N.B. variable CUDA_VERSION already exists in the image
@@ -44,7 +46,3 @@ RUN python -m pip --no-cache-dir install \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
 #     "jax==${JAX_VERSION}" \
 #     "jaxlib==${JAXLIB_VERSION}+${CUDA_VERSION_MAJOR}.${CUDNN_VERSION}"
-
-RUN curl -sLO https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py
-
-# RUN ln --symbolic $(dirname $(find /usr/ -type f -iname "libcudart.so.*")) /usr/local/cuda-11.8
