@@ -27,6 +27,8 @@ def build(session):
         "--file",
         "docker/Dockerfile",
         "--build-arg",
+        f"BASE_IMAGE={base_image}",
+        "--build-arg",
         f"PYHF_VERSION={pyhf_version}",
         "--build-arg",
         f"PYHF_BACKEND={pyhf_backend}",
