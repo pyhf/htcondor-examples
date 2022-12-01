@@ -28,8 +28,23 @@ RUN python -m pip --no-cache-dir install \
     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
     "jax[cuda]==0.3.25"
 
+# CONTROL FOR MANUAL BUILD
+# # N.B. variable CUDA_VERSION already exists in the image
+# ARG CUDA_VERSION_MAJOR=cuda11
+# # ARG CUDA_VERSION_MAJOR=cuda111
+# # ARG CUDNN_VERSION=cudnn805
+# ARG CUDNN_VERSION=cudnn82
+# ARG JAX_VERSION=0.3.1
+# ARG JAXLIB_VERSION=0.1.76
+
 # RUN python -m pip --no-cache-dir install \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
-#     "jax[cuda11_cudnn82]==0.3.25"
+#     "jax[${CUDA_VERSION_MAJOR}_${CUDNN_VERSION}]==0.3.25"
+# RUN python -m pip --no-cache-dir install \
+#     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
+#     "jax==${JAX_VERSION}" \
+#     "jaxlib==${JAXLIB_VERSION}+${CUDA_VERSION_MAJOR}.${CUDNN_VERSION}"
+
+RUN curl -sLO https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py
 
 # RUN ln --symbolic $(dirname $(find /usr/ -type f -iname "libcudart.so.*")) /usr/local/cuda-11.8
