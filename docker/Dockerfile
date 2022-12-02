@@ -30,8 +30,10 @@ RUN apt-get -qq update && \
     curl -sL https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py \
         -o /docker/jax_detect_GPU.py && \
     mkdir -p -v /.cache && \
+    mkdir -p -v /work && \
     chmod -R 777 /usr/local/venv && \
-    chmod -R 777 /.cache
+    chmod -R 777 /.cache && \
+    chmod -R 777 /work
 
 # Creation of a /.cache dir and chmod to universal write is to allow for pip installs
 # into the virtual environment by non-root users
