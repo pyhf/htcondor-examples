@@ -1,12 +1,12 @@
-# htcondor-examples
+# HTCondor examples for pyhf workflows
 
 Example configurations for using pyhf with HTCondor inspired by the [Center for High Throughput Computing examples](https://github.com/CHTC/templates-GPUs).
 
-[`pyhf`](https://pyhf.readthedocs.io/) Docker images built on the [NVIDIA CUDA enabled images](https://github.com/NVIDIA/nvidia-docker) for runtime use with the the NVIDIA Container Toolkit.
+## CUDA enabled Docker images
 
-**These images are meant to be used as base images for bespoke user application images to build on.**
+These examples assume that you want to use GPU resources to take advantage of hardware acceleration and so focus on using the [`pyhf`](https://pyhf.readthedocs.io/) Docker base images built on the [NVIDIA CUDA enabled images](https://github.com/NVIDIA/nvidia-docker) for runtime use with the the NVIDIA Container Toolkit.
 
-## Installation
+### Local installation
 
 - Make sure that you have the [`nvidia-container-toolkit`](https://github.com/NVIDIA/nvidia-docker) installed on the host machine
 - Check the [list of available tags on Docker Hub](https://hub.docker.com/r/pyhf/cuda/tags?page=1) to find the tag you want
@@ -18,7 +18,7 @@ Example:
 docker pull pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
 ```
 
-## Use
+### Local use
 
 To check that NVIDIA GPUS are being properly detected run
 
