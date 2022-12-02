@@ -41,3 +41,9 @@ this is hinted at on the [Running HTC jobs using Docker containers](https://chtc
 > Type `exit` to end the interactive job.
 
 and this ssh isn't magical, and so would need to know to ignore your defaults.
+
+## TO ADD TO THE HELLO GPU EXAMPLE
+
+How to get information before using GPUs
+
+https://chtc.cs.wisc.edu/uw-research-computing/gpu-jobs#d-using-condor_status-to-explore-chtc-gpus
