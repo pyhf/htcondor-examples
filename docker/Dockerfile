@@ -62,3 +62,5 @@ RUN apt-get -qq update && \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
 #     "jax==${JAX_VERSION}" \
 #     "jaxlib==${JAXLIB_VERSION}+${CUDA_VERSION_MAJOR}.${CUDNN_VERSION}"
+
+WORKDIR /work
