@@ -42,6 +42,8 @@ this is hinted at on the [Running HTC jobs using Docker containers](https://chtc
 
 and this ssh isn't magical, and so would need to know to ignore your defaults.
 
+How to work with git+ssh then?
+
 ## TO ADD TO THE HELLO GPU EXAMPLE
 
 How to get information before using GPUs
