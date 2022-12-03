@@ -28,7 +28,23 @@ RUN apt-get -qq update && \
     "jax[cuda]==0.3.25" && \
     mkdir -p -v /docker && \
     curl -sL https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py \
-        -o /docker/jax_detect_GPU.py
+        -o /docker/jax_detect_GPU.py && \
+    mkdir -p -v \
+        /.local \
+        /.config \
+        /.cache \
+        /.jupyter \
+        /work && \
+    chmod --recursive 777 \
+        /usr/local/venv \
+        /.local \
+        /.config \
+        /.cache \
+        /.jupyter \
+        /work
+
+# Creation of a /.cache dir and chmod to universal write is to allow for pip installs
+# into the virtual environment by non-root users
 
 # CONTROL FOR MANUAL BUILD
 # # N.B. variable CUDA_VERSION already exists in the image
@@ -46,3 +62,5 @@ RUN apt-get -qq update && \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
 #     "jax==${JAX_VERSION}" \
 #     "jaxlib==${JAXLIB_VERSION}+${CUDA_VERSION_MAJOR}.${CUDNN_VERSION}"
+
+WORKDIR /work
