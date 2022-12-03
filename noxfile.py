@@ -31,7 +31,6 @@ def build(session):
         run_command = [
             "docker",
             "build",
-            ".",
             "--file",
             "docker/Dockerfile",
             "--build-arg",
@@ -45,6 +44,7 @@ def build(session):
         ]
         if base_image == default_image:
             run_command += ["--tag", f"pyhf/cuda:latest-{pyhf_backend}"]
+        run_command += "."
         session.run(*run_command, external=True)
 
 
