@@ -3,7 +3,8 @@
 
 # Must set the universe to Docker
 universe = docker
-docker_image = pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
+# docker_image = pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
+docker_image = pyhf/cuda@sha256:6f8eabefa43b992a2d34e6453e97fd6c0174de852ad2e760ba69e93363efa695
 
 # set the log, error and output files
 log = interactive_gpu.log.txt
