@@ -5,7 +5,7 @@
 universe = docker
 # To avoid Docker Hub rate limits set as "missing" (default value) unless "always" needed for updated tag
 docker_pull_policy = missing
-docker_image = pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
+docker_image = pyhf/cuda:0.7.2-jax-cuda-11.6.0-cudnn8
 
 # set the log, error and output files
 log = chtc_hello_gpu.log.txt

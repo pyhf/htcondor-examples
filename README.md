@@ -15,7 +15,7 @@ These examples assume that you want to use GPU resources to take advantage of ha
 Example:
 
 ```
-docker pull pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
+docker pull pyhf/cuda:0.7.2-jax-cuda-11.6.0-cudnn8
 ```
 
 ### Local use
@@ -23,7 +23,7 @@ docker pull pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
 To check that NVIDIA GPUS are being properly detected run
 
 ```
-docker run --rm --gpus all pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8 'nvidia-smi'
+docker run --rm --gpus all pyhf/cuda:0.7.2-jax-cuda-11.6.0-cudnn8 'nvidia-smi'
 ```
 
 and check if the [`nvidia-smi`](https://developer.nvidia.com/nvidia-system-management-interface) output appears correctly.
@@ -31,5 +31,5 @@ and check if the [`nvidia-smi`](https://developer.nvidia.com/nvidia-system-manag
 To run (interactively) using GPUs on the host machine:
 
 ```
-docker run --rm -ti --gpus all pyhf/cuda:0.7.0-jax-cuda-11.6.0-cudnn8
+docker run --rm -ti --gpus all pyhf/cuda:0.7.2-jax-cuda-11.6.0-cudnn8
 ```
