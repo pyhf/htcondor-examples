@@ -21,7 +21,6 @@ def build(session):
         default_image,
         "nvidia/cuda:11.2.2-devel-ubuntu20.04",
         "nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04",
-        "nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04",
     ]
     pyhf_version = "0.7.2"
     pyhf_backend = "jax"
