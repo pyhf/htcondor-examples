@@ -5,7 +5,7 @@ SHELL [ "/bin/bash", "-c" ]
 
 WORKDIR /home/data
 
-ARG PYHF_VERSION=0.7.0
+ARG PYHF_VERSION=0.7.2
 ARG PYHF_BACKEND=jax
 # Set PATH to pickup virtualenv when it is unpacked
 ENV PATH=/usr/local/venv/bin:"${PATH}"
@@ -25,7 +25,7 @@ RUN apt-get -qq update && \
     python -m pip --no-cache-dir install "pyhf[xmlio,contrib]==${PYHF_VERSION}" && \
     python -m pip --no-cache-dir install \
     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
-    "jax[cuda]==0.3.25" && \
+    "jax[cuda]==0.4.10" && \
     mkdir -p -v /docker && \
     curl -sL https://raw.githubusercontent.com/matthewfeickert/nvidia-gpu-ml-library-test/main/jax_detect_GPU.py \
         -o /docker/jax_detect_GPU.py && \
@@ -52,12 +52,12 @@ RUN apt-get -qq update && \
 # # ARG CUDA_VERSION_MAJOR=cuda111
 # # ARG CUDNN_VERSION=cudnn805
 # ARG CUDNN_VERSION=cudnn82
-# ARG JAX_VERSION=0.3.1
+# ARG JAX_VERSION=0.4.10
 # ARG JAXLIB_VERSION=0.1.76
 
 # RUN python -m pip --no-cache-dir install \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
-#     "jax[${CUDA_VERSION_MAJOR}_${CUDNN_VERSION}]==0.3.25"
+#     "jax[${CUDA_VERSION_MAJOR}_${CUDNN_VERSION}]==0.4.10"
 # RUN python -m pip --no-cache-dir install \
 #     --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
 #     "jax==${JAX_VERSION}" \
