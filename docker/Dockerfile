@@ -12,7 +12,6 @@ ENV PATH=/usr/local/venv/bin:"${PATH}"
 RUN apt-get -qq update && \
     apt-get -qq -y install --no-install-recommends \
         python3 \
-        python3-dev \
         python3-venv \
         curl \
         git && \
